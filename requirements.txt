@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+tensorflow-cpu
+numpy
+pillow
+mtcnn
+supabase
+python-multipart
