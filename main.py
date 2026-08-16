@@ -4,19 +4,20 @@ import numpy as np
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://customwidgethosting.web.app"],
+    allow_origins=["https://educonnectniger.flutterflow.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 from PIL import Image
 import tensorflow as tf
 from mtcnn import MTCNN
 from supabase import create_client
-
-app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
