@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from PIL import Image
+from PIL import Image, ImageOps
 import tensorflow as tf
 from mtcnn import MTCNN
 from supabase import create_client
@@ -42,7 +42,9 @@ def load_model():
     return interpreter
 
 def get_embedding(image_bytes: bytes):
-    img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    img = Image.open(io.BytesIO(image_bytes))
+    img = ImageOps.exif_transpose(img)
+    img = img.convert("RGB")
     img_array = np.array(img)
 
     faces = detector.detect_faces(img_array)
