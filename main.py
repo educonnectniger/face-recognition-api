@@ -67,7 +67,7 @@ def get_embedding(image_bytes: bytes):
     interp.set_tensor(input_details[0]['index'], face_array)
     interp.invoke()
     embedding = interp.get_tensor(output_details[0]['index'])[0]
-
+    embedding = embedding / np.linalg.norm(embedding)
     return embedding
 
 @app.post("/enroll")
