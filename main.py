@@ -105,7 +105,7 @@ async def recognize(file: UploadFile = File(...)):
         if distance < best_distance:
             best_distance = distance
             best_id = student["id"]
-
+        print(f"DEBUG - best_id: {best_id}, best_distance: {best_distance}, threshold: {threshold}")
     if best_id is not None and best_distance < threshold:
         return {"student_id": best_id}
 
