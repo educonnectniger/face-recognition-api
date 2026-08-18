@@ -1,4 +1,3 @@
-@@ -1,113 +1,114 @@
 import os
 import io
 import numpy as np
@@ -6,6 +5,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://educonnectniger.flutterflow.app"],
@@ -13,6 +13,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 from PIL import Image
 import tensorflow as tf
 from mtcnn import MTCNN
